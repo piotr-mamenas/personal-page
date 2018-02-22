@@ -1,19 +1,17 @@
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin')
+const path = require('path');
+
 module.exports = {
-  entry: "./app/assets/scripts/App.js",
+  entry: './src/app.js',
   output: {
-    path: "./app/temp/scripts",
-    filename: "app-bundle.js"
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist')
   },
-  module: {
-    loaders: [
-      {
-        loader: 'babel',
-        query: {
-          presets: ['es2015']
-        },
-        test: /\.js$/,
-        exclude: /node_modules/
-      }
-    ]
-  }
-}
+  plugins: [
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      server: { baseDir: ['public'] }
+    })
+  ]
+};
