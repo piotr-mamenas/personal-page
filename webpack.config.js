@@ -68,6 +68,18 @@ module.exports = {
 		},{
 			from: './section-technical-blog.html'
 		},{
+			from: './section-dotnet.html'
+		},{
+			from: './section-databases.html'
+		},{
+			from: './section-machine-learning.html'
+		},{
+			from: './section-health-and-fitness.html'
+		},{
+			from: './section-linguistics.html'
+		},{
+			from: './section-about-me.html'
+		},{
 			from: './favicon.ico'
 		},{
 			from: './img/**/*',
