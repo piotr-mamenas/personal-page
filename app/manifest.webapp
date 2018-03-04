@@ -1,0 +1,25 @@
+{
+	"version": "1.0.0",
+	"name": "personal-page",
+	"launch_path": "/index.html",
+	"description": "personal-page",
+	"icons": {
+		"128": "/img/icon-128x128.png"
+	},
+	"developer": {
+		"name": "Piotr Mamenas",
+		"url": "https://github.com/piotr-mamenas"
+	},
+	"installs_allowed_from": [
+		"*"
+	],
+	"default_locale": "en",
+	"permissions": {
+	},
+	"locales": {
+		"en": {
+			"name": "personal-page blog",
+			"description": "personal web page blog with webpack"
+		}
+	}
+}

@@ -1,58 +1,75 @@
-const webpack = require('webpack');
-const autoprefixer = require('autoprefixer');
-const bootstrapEntryPoints = require('./webpack.bootstrap.config.js');
-
-// eslint-disable-next-line no-console
-console.log(`=> bootstrap-loader configuration: ${bootstrapEntryPoints.dev}`);
-
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
-const path = require('path');
+var path = require('path');
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
+var webpack = require('webpack');
+var BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: [
-    'tether',
-    'font-awesome-loader',
-    bootstrapEntryPoints.dev,
-    './src/app.js'
-  ],
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
-  },
-  plugins: [
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: 3000,
-      server: { baseDir: ['dist'] }
-    }),
-    new webpack.NoEmitOnErrorsPlugin(),
-    new webpack.ProvidePlugin({
-      'window.Tether': 'tether',
-    }),
-    new webpack.LoaderOptionsPlugin({
-      postcss: [autoprefixer],
-    }),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery'
-    })
-  ],
-  devtool: '#cheap-module-eval-source-map',
-  resolve: { extensions: ['*', '.js'] },
-  watch: true,
-  module: {
-      rules: [
-      { test: /\.css$/, use: ['style-loader', 'css-loader', 'postcss-loader'] },
-      { test: /\.scss$/, use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] },
-      {
-        test: /\.woff2?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
-        use: 'url-loader?limit=10000',
-      },
-      {
-        test: /\.(ttf|eot|svg)(\?[\s\S]+)?$/,
-        use: 'file-loader',
-      },
-      { test: /bootstrap-sass\/assets\/javascripts\//, use: 'imports-loader?jQuery=jquery' },
-    ],
-  },
-};
+	context: path.resolve('./app'),
+	entry: './js/index.js',
+	output: {
+		path: path.resolve('./dist/'),
+		filename: 'js/bundle.js',
+		publicPath: '/'
+	},
+	module: {
+		devtool: 'source-map',
+		loaders: [{
+			test: /\.js$/,
+			loader: 'babel',
+			exclude: /node_modules/,
+			query: {
+				presets: ['es2015']
+			}
+		},{
+			test: /\.html$/,
+			loader: 'html'
+		},{
+			test: /\.scss$/,
+			loaders: ["style", "css", "sass"]
+		},{
+			test: /\.css$/,
+			loaders: ["style", "css"]
+		},{
+			test: /\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: "url-loader?limit=10000&mimetype=application/font-woff&name=fonts/[name].[ext]"
+		},{
+			test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+			loader: "file?name=fonts/[name].[ext]"
+		},{
+			test: /\.(jpe?g|png|gif)$/,
+  		loader:'file?name=img/[name].[ext]'
+		}]
+	},
+	plugins: [
+		new CleanWebpackPlugin(['dist']),
+		new HtmlWebpackPlugin({
+			template: './index.html'
+		}),
+		new webpack.ProvidePlugin({
+			$: 'jquery',
+			jQuery: 'jquery',
+		}),
+		new BrowserSyncPlugin({
+			server: {
+				baseDir: ['dist']
+			},
+			port: 3000,
+			host: 'localhost',
+			open: false
+		}),
+		new CopyWebpackPlugin([{
+			from: './manifest.json'
+		},{
+			from: './manifest.webapp'
+		},{
+			from: './robots.txt'
+		},{
+			from: './favicon.ico'
+		},{
+			from: './img/**/*',
+			to: './'
+		}])
+	]
+}
