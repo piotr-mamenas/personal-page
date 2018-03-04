@@ -66,6 +66,8 @@ module.exports = {
 		},{
 			from: './robots.txt'
 		},{
+			from: './section-technical-blog.html'
+		},{
 			from: './favicon.ico'
 		},{
 			from: './img/**/*',
