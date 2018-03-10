@@ -1,0 +1,59 @@
+<div class='main-nav'>
+    <div class='navbar navbar-default navbar-fixed-top'>
+        <div class='navbar-header'>
+            <button type='button' class='navbar-toggle' data-toggle='collapse' data-target='.navbar-collapse'>
+                <span class='sr-only'>Toggle navigation</span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
+            </button>
+            <a class='navbar-brand' [routerLink]="['/home']">savage-savant</a>
+        </div>
+        <div class='clearfix'></div>
+        <div class='navbar-collapse collapse'>
+            <ul class='nav navbar-nav'>
+	            <li [routerLinkActive]="['link-active']">
+		            <a [routerLink]="['/blog']">
+			            <span class='fa fa-sticky-note'></span> Blog
+		            </a>
+	            </li>
+
+	            <li [routerLinkActive]="['link-active']">
+		            <a [routerLink]="['/dotnet']">
+			            <span class='fa fa-windows'></span> Dotnet
+		            </a>
+	            </li>
+
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/databases']">
+                        <span class='fa fa-database'></span> Databases
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/linguistics']">
+                        <span class='fa fa-comments'></span> Linguistics
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/machine-learning']">
+                        <span class='fa fa-flask'></span> Machine Learning
+                    </a>
+                </li>
+
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/health-and-fitness']">
+                        <span class='fa fa-cutlery'></span> Health and Fitness
+                    </a>
+                </li>
+
+	            <li [routerLinkActive]="['link-active']">
+		            <a [routerLink]="['/about-me']">
+			            <span class='fa fa-user'></span> About Me
+		            </a>
+	            </li>
+            </ul>
+        </div>
+    </div>
+</div>
