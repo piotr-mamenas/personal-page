@@ -9,6 +9,7 @@ namespace PersonalPage.Web.Mapping
         public PostMappingProfile()
         {
             CreateMap<Post, PostDto>().ReverseMap();
+            CreateMap<Tag, TagDto>().ReverseMap();
         }
     }
 }

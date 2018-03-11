@@ -16,6 +16,7 @@ import { HealthAndFitnessComponent } from './components/health-and-fitness/healt
 import { AboutMeComponent } from './components/about-me/about-me.component';
 
 import { PostService } from './services/post.service';
+import { TagService } from './services/tag.service';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { PostService } from './services/post.service';
         AboutMeComponent
     ],
     providers: [
-        PostService
+        PostService,
+        TagService
     ],
     imports: [
         CommonModule,

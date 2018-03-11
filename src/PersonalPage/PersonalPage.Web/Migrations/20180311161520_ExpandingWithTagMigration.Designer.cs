@@ -11,9 +11,10 @@ using System;
 namespace PersonalPage.Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180311161520_ExpandingWithTagMigration")]
+    partial class ExpandingWithTagMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,7 +34,7 @@ namespace PersonalPage.Web.Migrations
 
                     b.Property<DateTime>("DateModified");
 
-                    b.Property<int?>("TagId");
+                    b.Property<int?>("PostTagId");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -41,7 +42,7 @@ namespace PersonalPage.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("TagId");
+                    b.HasIndex("PostTagId");
 
                     b.ToTable("Posts");
                 });
@@ -56,34 +57,15 @@ namespace PersonalPage.Web.Migrations
 
                     b.Property<DateTime>("DateModified");
 
-                    b.Property<int>("PostId");
-
-                    b.Property<int>("TagId");
-
-                    b.HasKey("Id");
-
-                    b.HasAlternateKey("PostId", "TagId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("PostTags");
-                });
-
-            modelBuilder.Entity("PersonalPage.Web.Domain.Posts.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("DateCreated");
-
-                    b.Property<DateTime>("DateModified");
-
                     b.Property<string>("Name");
 
+                    b.Property<int?>("PostId");
+
                     b.HasKey("Id");
 
-                    b.ToTable("Tags");
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostTag");
                 });
 
             modelBuilder.Entity("PersonalPage.Web.Domain.Widget.Widget", b =>
@@ -105,22 +87,16 @@ namespace PersonalPage.Web.Migrations
 
             modelBuilder.Entity("PersonalPage.Web.Domain.Posts.Post", b =>
                 {
-                    b.HasOne("PersonalPage.Web.Domain.Posts.Tag")
+                    b.HasOne("PersonalPage.Web.Domain.Posts.PostTag")
                         .WithMany("Posts")
-                        .HasForeignKey("TagId");
+                        .HasForeignKey("PostTagId");
                 });
 
             modelBuilder.Entity("PersonalPage.Web.Domain.Posts.PostTag", b =>
                 {
-                    b.HasOne("PersonalPage.Web.Domain.Posts.Post", "Post")
+                    b.HasOne("PersonalPage.Web.Domain.Posts.Post")
                         .WithMany("Tags")
-                        .HasForeignKey("PostId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("PersonalPage.Web.Domain.Posts.Tag", "Tag")
-                        .WithMany()
-                        .HasForeignKey("TagId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("PostId");
                 });
 #pragma warning restore 612, 618
         }

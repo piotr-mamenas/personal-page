@@ -11,9 +11,10 @@ using System;
 namespace PersonalPage.Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180311162451_TagMigration")]
+    partial class TagMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -66,7 +67,7 @@ namespace PersonalPage.Web.Migrations
 
                     b.HasIndex("TagId");
 
-                    b.ToTable("PostTags");
+                    b.ToTable("PostTag");
                 });
 
             modelBuilder.Entity("PersonalPage.Web.Domain.Posts.Tag", b =>
@@ -83,7 +84,7 @@ namespace PersonalPage.Web.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Tags");
+                    b.ToTable("Tag");
                 });
 
             modelBuilder.Entity("PersonalPage.Web.Domain.Widget.Widget", b =>
