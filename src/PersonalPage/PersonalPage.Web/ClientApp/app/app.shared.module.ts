@@ -43,6 +43,7 @@ import { TagService } from './services/tag.service';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'blog', component: BlogComponent },
+            { path: 'blog/:tagName', component: BlogComponent },
             { path: 'dotnet', component: DotnetComponent },
             { path: 'databases', component: DatabasesComponent },
             { path: 'linguistics', component: LinguisticsComponent },

@@ -8,11 +8,11 @@ namespace PersonalPage.Web.Domain.Posts
 
         public string Content { get; set; }
 
-        public ICollection<PostTag> Tags { get; set; }
+        public ICollection<PostTag> PostTags { get; set; }
 
         public Post()
         {
-            Tags = new List<PostTag>();
+            PostTags = new List<PostTag>();
         }
     }
 }

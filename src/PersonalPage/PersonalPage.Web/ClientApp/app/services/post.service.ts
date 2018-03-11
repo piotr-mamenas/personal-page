@@ -11,4 +11,8 @@ export class PostService {
     getPosts() {
         return this.http.get('/api/posts').map(res => res.json());
     }
+
+    getPostsByTag(tagName: string) {
+        return this.http.get('/api/posts/'+tagName).map(res => res.json());
+    }
 }

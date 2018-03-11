@@ -11,6 +11,7 @@ namespace PersonalPage.Web.Infrastructure
         public DbSet<Post> Posts { get; set; }
         public DbSet<Widget> Widgets { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<PostTag> PostTags { get; set; }
 
         public AppDbContext(DbContextOptions options)
             : base(options)

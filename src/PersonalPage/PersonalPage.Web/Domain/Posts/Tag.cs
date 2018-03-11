@@ -6,11 +6,11 @@ namespace PersonalPage.Web.Domain.Posts
     {
         public string Name { get; set; }
 
-        public ICollection<Post> Posts { get; set; }
+        public ICollection<PostTag> PostTags { get; set; }
 
         public Tag()
         {
-            Posts = new List<Post>();
+            PostTags = new List<PostTag>();
         }
     }
 }

@@ -14,7 +14,9 @@ namespace PersonalPage.Web.Infrastructure.Configurations.PostConfigurations
             builder.Property(p => p.Content)
                 .IsRequired();
 
-            builder.HasMany(p => p.Tags);
+            builder.HasMany(p => p.PostTags)
+                .WithOne(pt => pt.Post)
+                .HasForeignKey(pt => pt.PostId);
 
             base.Configure(builder);
         }

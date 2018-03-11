@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using AutoMapper.QueryableExtensions;
@@ -30,6 +31,23 @@ namespace PersonalPage.Web.Controllers
             var postsInDb = await _context.Posts.ToListAsync();
 
             return _mapper.Map<List<Post>,List<PostDto>>(postsInDb);
+        }
+
+        [HttpGet("{tagName}")]
+        public async Task<IEnumerable<PostDto>> GetByTag(string tagName)
+        {
+            var taggedPostIds = await _context.PostTags
+                .Include(pt => pt.Tag)
+                .Where(pt => pt.Tag.Name == tagName)
+                .Select(pt => pt.PostId).ToListAsync();
+
+            var posts = await _context.Posts
+                .Include(p => p.PostTags)
+                .ThenInclude(p => p.Tag)
+                .Where(p => taggedPostIds.Contains(p.Id))
+                .ToListAsync();
+
+            return _mapper.Map<List<Post>, List<PostDto>>(posts);
         }
     }
 }

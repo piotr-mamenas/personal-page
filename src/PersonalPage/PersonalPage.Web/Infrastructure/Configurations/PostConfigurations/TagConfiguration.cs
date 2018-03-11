@@ -12,7 +12,9 @@ namespace PersonalPage.Web.Infrastructure.Configurations.PostConfigurations
 
             builder.Property(pt => pt.Name);
 
-            builder.HasMany(pt => pt.Posts);
+            builder.HasMany(p => p.PostTags)
+                .WithOne(pt => pt.Tag)
+                .HasForeignKey(pt => pt.TagId);
 
             base.Configure(builder);
         }
