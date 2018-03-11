@@ -11,9 +11,10 @@ using System;
 namespace PersonalPage.Web.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180311124851_AddingDateModifiedRenamingDateInserted")]
+    partial class AddingDateModifiedRenamingDateInserted
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

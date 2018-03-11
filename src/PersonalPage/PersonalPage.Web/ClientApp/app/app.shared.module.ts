@@ -15,6 +15,8 @@ import { MachineLearningComponent } from './components/machine-learning/machine-
 import { HealthAndFitnessComponent } from './components/health-and-fitness/health-and-fitness.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 
+import { PostService } from './services/post.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -27,6 +29,9 @@ import { AboutMeComponent } from './components/about-me/about-me.component';
         MachineLearningComponent,
         HealthAndFitnessComponent,
         AboutMeComponent
+    ],
+    providers: [
+        PostService
     ],
     imports: [
         CommonModule,

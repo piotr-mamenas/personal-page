@@ -10,6 +10,6 @@ namespace PersonalPage.Web.Dtos
 
         public int Id { get; set; }
         
-        public DateTime DateInserted { get; set; }
+        public DateTime DateCreated { get; set; }
     }
 }
