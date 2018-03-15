@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using PersonalPage.Web.Domain.Widget;
+using PersonalPage.Web.Dtos;
 
 namespace PersonalPage.Web.Mapping
 {
