@@ -9,6 +9,12 @@ namespace PersonalPage.Web.Infrastructure.Configurations.WidgetConfigurations
         {
             builder.Property(w => w.Name);
 
+            builder.Property(w => w.Content);
+
+            builder.Property(w => w.Page);
+
+            builder.Property(w => w.Color);
+
             base.Configure(builder);
         }
     }

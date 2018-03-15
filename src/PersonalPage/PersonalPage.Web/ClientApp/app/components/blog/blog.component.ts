@@ -4,13 +4,15 @@ import { ActivatedRoute } from '@angular/router';
 import { PostService } from './../../services/post.service';
 import { TagService } from './../../services/tag.service';
 
+import { Post } from './../../interfaces/post';
+
 @Component({
     selector: 'blog',
     templateUrl: './blog.component.html',
     styleUrls: ['./blog.component.css']
 })
 export class BlogComponent implements OnDestroy {
-    posts: any[];
+    posts: Post[];
     tags: any[];
 
     constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute) {

@@ -1,6 +1,6 @@
-﻿namespace PersonalPage.Web.Domain.Widget
+﻿namespace PersonalPage.Web.Dtos
 {
-    public class Widget : BaseEntity
+    public class WidgetDto
     {
         public string Name { get; set; }
 
