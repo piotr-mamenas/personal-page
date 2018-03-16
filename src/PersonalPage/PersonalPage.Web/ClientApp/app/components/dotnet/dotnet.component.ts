@@ -6,10 +6,9 @@ import { Http } from '@angular/http';
     templateUrl: './dotnet.component.html'
 })
 export class DotnetComponent {
-
-    //constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-    //http.get(baseUrl + 'api/SampleData/WeatherForecasts').subscribe(result => {
-    //    this.forecasts = result.json() as WeatherForecast[];
-    //}, error => console.error(error));
-    //}
+    color = {
+        red: "#e00404",
+        blue: "#0479e0",
+        green: "#53bf01"
+    };
 }

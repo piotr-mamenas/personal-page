@@ -1,1 +1,14 @@
-﻿
+﻿.widget {
+    width: 250px;
+    height: 250px;
+    margin: 20px;
+    padding: 60px;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+    border: solid 1px #CCCCCC;
+}
+
+.widget:hover {
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 255, 0.15), 0 6px 20px 0 rgba(0, 0, 255, 0.4);
+}

@@ -14,6 +14,7 @@ import { LinguisticsComponent } from './components/linguistics/linguistics.compo
 import { MachineLearningComponent } from './components/machine-learning/machine-learning.component';
 import { HealthAndFitnessComponent } from './components/health-and-fitness/health-and-fitness.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
+import { WidgetComponent } from './components/widget/widget.component';
 
 import { PostService } from './services/post.service';
 import { TagService } from './services/tag.service';
@@ -29,7 +30,8 @@ import { TagService } from './services/tag.service';
         LinguisticsComponent,
         MachineLearningComponent,
         HealthAndFitnessComponent,
-        AboutMeComponent
+        AboutMeComponent,
+        WidgetComponent
     ],
     providers: [
         PostService,
