@@ -1,4 +1,4 @@
-﻿import { Component, OnInit, Input } from '@angular/core';
+﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate, keyframes, query, stagger, state } from '@angular/animations';
 
 import { ColorPalette } from './../../enums/color-palette.enum';
@@ -13,7 +13,8 @@ Component({
             [
                 state('closed',
                     style({
-                        backgroundColor: ColorPalette.Red
+                        backgroundColor: ColorPalette.Red,
+                        width: '20%'
                     })),
                 state('open',
                     style({
@@ -42,17 +43,24 @@ Component({
 export class WidgetComponent implements OnInit {
     @Input() colorRgb: string;
     @Input() widgetId: string;
+
+    @Output() onWidgetOpened = new EventEmitter();
     widgetState: string = 'closed';
     articleWidgetState: string = 'hidden';
-    isArticleVisible: boolean = false;
+    isArticleHidden: boolean = true;
+    isWidgetHidden: boolean = false;
 
     onClick() {
         this.widgetState = (this.widgetState === 'closed' ? 'open' : 'closed');
         this.articleWidgetState = (this.articleWidgetState === 'hidden' ? 'visible' : 'hidden');
+        this.isArticleHidden = (this.articleWidgetState === 'hidden');
+        this.isWidgetHidden = (this.articleWidgetState === 'hidden');
 
+        if (this.isWidgetHidden === false) {
+            this.onWidgetOpened.emit(this.widgetId);
+        }
     }
 
     ngOnInit() {
-        this.widgetId = "123";
     }
 }

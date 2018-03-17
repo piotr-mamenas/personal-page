@@ -1,3 +1,7 @@
 <div class="container">
-    <widget [colorRgb]="widgetColor"></widget>    
+    <div class="row">
+        <widget [colorRgb]="widgetColor" [widgetId]="1" (onWidgetOpened)="onWidgetOpened($event)"></widget>
+        <widget [colorRgb]="widgetColor" [widgetId]="2"></widget>
+        <widget [colorRgb]="widgetColor" [widgetId]="3"></widget>        
+    </div>
 </div>

@@ -9,4 +9,8 @@ import { ColorPalette } from './../../enums/color-palette.enum';
 })
 export class DotnetComponent {
     widgetColor = ColorPalette.Red;
+
+    onWidgetOpened(id : number) {
+        console.log(id);
+    }
 }
