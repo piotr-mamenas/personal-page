@@ -1,10 +1,9 @@
 ﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { trigger, style, transition, animate, keyframes, query, stagger, state } from '@angular/animations';
+import { trigger, style, transition, animate, state } from '@angular/animations';
 
 import { ColorPalette } from './../../enums/color-palette.enum';
 
-@
-Component({
+@Component({
     selector: 'widget',
     templateUrl: './widget.component.html',
     styleUrls: ['./widget.component.css'],
@@ -13,9 +12,9 @@ Component({
             [
                 state('closed',
                     style({
-                        backgroundColor: ColorPalette.Red,
+                        backgroundColor: '{{ colorRgb }}',
                         width: '20%'
-                    })),
+                    })), 
                 state('open',
                     style({
                         backgroundColor: ColorPalette.Blue,
@@ -42,9 +41,13 @@ Component({
 })
 export class WidgetComponent implements OnInit {
     @Input() colorRgb: string;
-    @Input() widgetId: string;
+    @Input() widgetId: number;
+    @Input() widgetContent: string;
+    @Input() widgetName: string;
 
     @Output() onWidgetOpened = new EventEmitter();
+    @Output() onWidgetClosed = new EventEmitter();
+
     widgetState: string = 'closed';
     articleWidgetState: string = 'hidden';
     isArticleHidden: boolean = true;
@@ -58,6 +61,8 @@ export class WidgetComponent implements OnInit {
 
         if (this.isWidgetHidden === false) {
             this.onWidgetOpened.emit(this.widgetId);
+        } else {
+            this.onWidgetClosed.emit(this.widgetId);
         }
     }
 

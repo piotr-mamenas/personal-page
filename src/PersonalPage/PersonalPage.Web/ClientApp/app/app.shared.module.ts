@@ -19,6 +19,7 @@ import { WidgetComponent } from './components/widget/widget.component';
 
 import { PostService } from './services/post.service';
 import { TagService } from './services/tag.service';
+import { WidgetService } from './services/widget.service';
 
 @NgModule({
     declarations: [
@@ -36,7 +37,8 @@ import { TagService } from './services/tag.service';
     ],
     providers: [
         PostService,
-        TagService
+        TagService,
+        WidgetService
     ],
     imports: [
         CommonModule,

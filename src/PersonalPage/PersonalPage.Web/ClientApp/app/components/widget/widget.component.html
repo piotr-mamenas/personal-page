@@ -1,10 +1,13 @@
-﻿<div class="widget" [attr.widget-id]="widgetId" 
-         [style.background]="colorRgb"
-         (click)="onClick()"
-         [@openWidget]="widgetState">
-    <div class="widget-title">Polyglot System</div>
+﻿<div class="widget col-md-3" [attr.widget-id]="widgetId"
+     [style.background]="colorRgb"
+     (click)="onClick()"
+     [@openWidget]="{value:widgetState, params: {colorRgb: colorRgb}}">
+    <span class="fa fa-chevron-circle-left pull-left" [hidden]="isArticleHidden"></span>
+    <div class="widget-title">
+        {{ widgetName }}
+    </div>
 </div>    
 
 <div class="widget widget-article" [@toggleWidgetArticle]="articleWidgetState" [hidden]="isArticleHidden">
-
+    {{ widgetContent }}
 </div>

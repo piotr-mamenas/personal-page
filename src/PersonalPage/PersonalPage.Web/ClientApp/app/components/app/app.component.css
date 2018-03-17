@@ -1,3 +1,7 @@
 .body-content {
     padding-top: 100px;
 }
+
+body {
+    font-family: 'Encode Sans', sans-serif;
+}

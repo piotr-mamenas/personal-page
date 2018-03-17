@@ -1,7 +1,13 @@
 <div class="container">
     <div class="row">
-        <widget [colorRgb]="widgetColor" [widgetId]="1" (onWidgetOpened)="onWidgetOpened($event)"></widget>
-        <widget [colorRgb]="widgetColor" [widgetId]="2"></widget>
-        <widget [colorRgb]="widgetColor" [widgetId]="3"></widget>        
+        <div *ngFor="let widget of widgets">
+            <widget [colorRgb]="widget.color" 
+                    [widgetId]="widget.id" 
+                    [widgetName]="widget.name"
+                    [widgetContent]="widget.content"
+                    (onWidgetOpened)="onWidgetOpened($event)"
+                    (onWidgetClosed)="onWidgetClosed($event)"
+                    *ngIf="!widget.isClosed"></widget>
+        </div>
     </div>
 </div>
