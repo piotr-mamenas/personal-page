@@ -1,10 +1,14 @@
-﻿<div class="widget" [attr.widget-id]="widgetId" 
-     [style.background]="colorRgb"
-     (click)="onClick()"
-     [@openWidget]="widgetState">
-    Hello
+﻿<div class="row">
+    <div class="widget" [attr.widget-id]="widgetId" 
+         [style.background]="colorRgb"
+         (click)="onClick()"
+         [@openWidget]="widgetState">
+        Hello
+    </div>    
 </div>
-<div class="widget-article" [@toggleWidgetArticle]="articleWidgetState" [hidden]="isArticleVisible">
-    <div class="col-md-6">Hello</div>
-    <div class="col-md-6">World</div>
+
+<div class="row" [@toggleWidgetArticle]="articleWidgetState" [hidden]="isArticleVisible">
+    <div class="widget widget-article">
+        
+    </div>
 </div>

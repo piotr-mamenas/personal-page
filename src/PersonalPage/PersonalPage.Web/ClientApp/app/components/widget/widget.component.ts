@@ -43,12 +43,13 @@ export class WidgetComponent implements OnInit {
     @Input() colorRgb: string;
     @Input() widgetId: string;
     widgetState: string = 'closed';
-    widgetArticleState: string = 'hidden';
+    articleWidgetState: string = 'hidden';
     isArticleVisible: boolean = false;
 
     onClick() {
         this.widgetState = (this.widgetState === 'closed' ? 'open' : 'closed');
-        this.widgetArticleState = (this.widgetArticleState === 'hidden' ? 'visible' : 'hidden');
+        this.articleWidgetState = (this.articleWidgetState === 'hidden' ? 'visible' : 'hidden');
+
     }
 
     ngOnInit() {
