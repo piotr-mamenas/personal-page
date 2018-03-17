@@ -1,14 +1,12 @@
 import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 
+import { ColorPalette } from './../../enums/color-palette.enum';
+
 @Component({
     selector: 'dotnet',
     templateUrl: './dotnet.component.html'
 })
 export class DotnetComponent {
-    color = {
-        red: "#e00404",
-        blue: "#0479e0",
-        green: "#53bf01"
-    };
+    widgetColor = ColorPalette.Red;
 }
