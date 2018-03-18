@@ -10,10 +10,6 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
 import { WidgetPageComponent } from './components/widget-page/widget-page.component';
-import { DatabasesComponent } from './components/databases/databases.component';
-import { LinguisticsComponent } from './components/linguistics/linguistics.component';
-import { MachineLearningComponent } from './components/machine-learning/machine-learning.component';
-import { HealthAndFitnessComponent } from './components/health-and-fitness/health-and-fitness.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { WidgetComponent } from './components/widget/widget.component';
 
@@ -28,10 +24,6 @@ import { WidgetService } from './services/widget.service';
         BlogComponent,
         HomeComponent,
         WidgetPageComponent,
-        DatabasesComponent,
-        LinguisticsComponent,
-        MachineLearningComponent,
-        HealthAndFitnessComponent,
         AboutMeComponent,
         WidgetComponent
     ],
@@ -51,10 +43,6 @@ import { WidgetService } from './services/widget.service';
             { path: 'blog', component: BlogComponent },
             { path: 'blog/:tagName', component: BlogComponent },
             { path: 'page/:pageName', component: WidgetPageComponent },
-            { path: 'databases', component: DatabasesComponent },
-            { path: 'linguistics', component: LinguisticsComponent },
-            { path: 'machine-learning', component: MachineLearningComponent },
-            { path: 'health-and-fitness', component: HealthAndFitnessComponent },
             { path: 'about-me', component: AboutMeComponent },
             { path: '**', redirectTo: 'home' }
         ])

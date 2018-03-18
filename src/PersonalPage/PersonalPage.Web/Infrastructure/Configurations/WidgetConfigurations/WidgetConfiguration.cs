@@ -17,6 +17,8 @@ namespace PersonalPage.Web.Infrastructure.Configurations.WidgetConfigurations
 
             builder.Property(w => w.Icon);
 
+            builder.Property(w => w.ContentType);
+
             base.Configure(builder);
         }
     }

@@ -41,6 +41,7 @@ export class WidgetComponent {
     @Input() widgetContent: string;
     @Input() widgetName: string;
     @Input() widgetIcon: string;
+    @Input() widgetType: string;
 
     @Output() onWidgetOpened = new EventEmitter();
     @Output() onWidgetClosed = new EventEmitter();

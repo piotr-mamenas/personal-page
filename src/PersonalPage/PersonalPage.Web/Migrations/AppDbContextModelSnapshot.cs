@@ -92,6 +92,8 @@ namespace PersonalPage.Web.Migrations
 
                     b.Property<string>("Content");
 
+                    b.Property<string>("ContentType");
+
                     b.Property<DateTime>("DateCreated");
 
                     b.Property<DateTime>("DateModified");
