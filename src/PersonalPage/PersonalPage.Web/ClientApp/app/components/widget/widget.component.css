@@ -16,7 +16,8 @@
 }
 
 .widget-title {
-    max-width: 100%;
+    max-width: 70%;
+    color: #FFF;
 }
 
 .widget-article {
@@ -27,6 +28,7 @@
     text-align: left;
     justify-content: flex-start;
     align-items: flex-start;
+    background-color: #FFF;
 }
 
 .widget:hover {

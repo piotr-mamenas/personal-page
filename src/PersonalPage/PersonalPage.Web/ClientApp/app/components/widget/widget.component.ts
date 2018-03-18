@@ -47,26 +47,35 @@ export class WidgetComponent {
     widgetState: string = 'closed';
     articleWidgetState: string = 'hidden';
     isArticleHidden: boolean = true;
+    isAnimating: boolean = false;
 
     onClickWidget() {
-        //this.widgetState = (this.widgetState === 'closed' ? 'open' : 'closed');
-        //this.articleWidgetState = (this.articleWidgetState === 'hidden' ? 'visible' : 'hidden');
-        //if (this.articleWidgetState === 'hidden') {  };
-
-        if (this.widgetState === 'closed') {
-            this.widgetState = 'open';
-            this.articleWidgetState = 'visible';
+        if (!this.isAnimating) {
+            if (this.widgetState === 'closed') {
+                this.widgetState = 'open';
+                this.articleWidgetState = 'visible';
+            }
+            this.propagateState();            
         }
-        this.propagateState();
     }
 
-    onClickBack(e : any) {
-        if (this.widgetState === 'open') {
-            this.widgetState = 'closed';
-            this.articleWidgetState = 'hidden';
+    onClickBack(e: any) {
+        if (!this.isAnimating) {
+            if (this.widgetState === 'open') {
+                this.widgetState = 'closed';
+                this.articleWidgetState = 'hidden';
+            }
+            this.propagateState();
+            e.stopPropagation();
         }
-        this.propagateState();
-        e.stopPropagation();
+    }
+
+    onAnimationStarted() {
+        this.isAnimating = true;
+    }
+
+    onAnimationFinished() {
+        this.isAnimating = false;
     }
 
     propagateState() {
