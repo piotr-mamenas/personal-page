@@ -26,7 +26,6 @@ export class DotnetComponent implements OnInit {
     }
 
     onWidgetClosed(id: number) {
-        console.log('hello');
         this.widgets.forEach(widget => {
             widget.isClosed = false;
         });

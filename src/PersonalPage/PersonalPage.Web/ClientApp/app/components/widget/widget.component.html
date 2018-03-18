@@ -1,10 +1,20 @@
 ﻿<div class="widget col-md-3" [attr.widget-id]="widgetId"
      [style.background]="colorRgb"
-     (click)="onClick()"
-     [@openWidget]="{value:widgetState, params: {colorRgb: colorRgb}}">
-    <span class="fa fa-chevron-circle-left pull-left" [hidden]="isArticleHidden"></span>
-    <div class="widget-title">
-        {{ widgetName }}
+     (click)="onClickWidget()"
+     [@openWidget]="widgetState">
+    <div class="col-md-3" [hidden]="isArticleHidden">
+        <button class="btn btn-default pull-left" (click)="onClickBack($event)"><span class="fa fa-chevron-circle-left"></span> Back</button>
+        
+    </div>
+    <div class="col-md-9">
+        <div class="widget-title">
+            <div class="row">
+                <span class="fa fa-info-circle fa-4x" [hidden]="!isArticleHidden"></span>
+            </div>
+            <div class="row">
+                {{ widgetName }}
+            </div>
+        </div>        
     </div>
 </div>    
 

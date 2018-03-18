@@ -1,7 +1,5 @@
-﻿import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate, state } from '@angular/animations';
-
-import { ColorPalette } from './../../enums/color-palette.enum';
 
 @Component({
     selector: 'widget',
@@ -12,12 +10,10 @@ import { ColorPalette } from './../../enums/color-palette.enum';
             [
                 state('closed',
                     style({
-                        backgroundColor: '{{ colorRgb }}',
-                        width: '20%'
+                        width: '25%'
                     })), 
                 state('open',
                     style({
-                        backgroundColor: ColorPalette.Blue,
                         width: '100%',
                         height: '40px'
                     })),
@@ -39,7 +35,7 @@ import { ColorPalette } from './../../enums/color-palette.enum';
             ])
     ]
 })
-export class WidgetComponent implements OnInit {
+export class WidgetComponent {
     @Input() colorRgb: string;
     @Input() widgetId: number;
     @Input() widgetContent: string;
@@ -51,21 +47,35 @@ export class WidgetComponent implements OnInit {
     widgetState: string = 'closed';
     articleWidgetState: string = 'hidden';
     isArticleHidden: boolean = true;
-    isWidgetHidden: boolean = false;
 
-    onClick() {
-        this.widgetState = (this.widgetState === 'closed' ? 'open' : 'closed');
-        this.articleWidgetState = (this.articleWidgetState === 'hidden' ? 'visible' : 'hidden');
+    onClickWidget() {
+        //this.widgetState = (this.widgetState === 'closed' ? 'open' : 'closed');
+        //this.articleWidgetState = (this.articleWidgetState === 'hidden' ? 'visible' : 'hidden');
+        //if (this.articleWidgetState === 'hidden') {  };
+
+        if (this.widgetState === 'closed') {
+            this.widgetState = 'open';
+            this.articleWidgetState = 'visible';
+        }
+        this.propagateState();
+    }
+
+    onClickBack(e : any) {
+        if (this.widgetState === 'open') {
+            this.widgetState = 'closed';
+            this.articleWidgetState = 'hidden';
+        }
+        this.propagateState();
+        e.stopPropagation();
+    }
+
+    propagateState() {
         this.isArticleHidden = (this.articleWidgetState === 'hidden');
-        this.isWidgetHidden = (this.articleWidgetState === 'hidden');
 
-        if (this.isWidgetHidden === false) {
+        if (this.isArticleHidden === false) {
             this.onWidgetOpened.emit(this.widgetId);
         } else {
             this.onWidgetClosed.emit(this.widgetId);
-        }
-    }
-
-    ngOnInit() {
+        } 
     }
 }
