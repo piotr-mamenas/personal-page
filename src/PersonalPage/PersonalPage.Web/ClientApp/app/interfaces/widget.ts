@@ -4,5 +4,6 @@
     content: string;
     page: string;
     color: string;
+    icon: string;
     isClosed: boolean;
 }

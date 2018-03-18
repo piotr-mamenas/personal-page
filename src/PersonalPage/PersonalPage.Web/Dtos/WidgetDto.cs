@@ -11,5 +11,7 @@
         public string Content { get; set; }
 
         public string Color { get; set; }
+
+        public string Icon { get; set; }
     }
 }

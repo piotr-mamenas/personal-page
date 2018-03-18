@@ -5,6 +5,7 @@
                     [widgetId]="widget.id" 
                     [widgetName]="widget.name"
                     [widgetContent]="widget.content"
+                    [widgetIcon]="widget.icon"
                     (onWidgetOpened)="onWidgetOpened($event)"
                     (onWidgetClosed)="onWidgetClosed($event)"
                     *ngIf="!widget.isClosed"></widget>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -25,6 +26,16 @@ namespace PersonalPage.Web.Controllers
         public async Task<IEnumerable<WidgetDto>> GetAll()
         {
             var widgetsInDb = await _context.Widgets.ToListAsync();
+
+            return _mapper.Map<List<Widget>, List<WidgetDto>>(widgetsInDb);
+        }
+
+        [HttpGet("{pageName}")]
+        public async Task<IEnumerable<WidgetDto>> GetByPage(string pageName)
+        {
+            var widgetsInDb = await _context.Widgets
+                .Where(w => w.Page == pageName)
+                .ToListAsync();
 
             return _mapper.Map<List<Widget>, List<WidgetDto>>(widgetsInDb);
         }

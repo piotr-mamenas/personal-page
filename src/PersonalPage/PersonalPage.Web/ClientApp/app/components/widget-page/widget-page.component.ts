@@ -1,18 +1,22 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { Http } from '@angular/http';
+import { ActivatedRoute } from '@angular/router';
 
 import { WidgetService } from './../../services/widget.service';
 import { Widget } from './../../interfaces/widget';
 
 @Component({
-    selector: 'dotnet',
-    templateUrl: './dotnet.component.html'
+    selector: 'widget-page',
+    templateUrl: './widget-page.component.html'
 })
-export class DotnetComponent implements OnInit {
+export class WidgetPageComponent implements OnInit {
     widgets : Widget[];
 
-    constructor(private widgetService: WidgetService) {
-        this.widgetService.getWidgets().subscribe(widgets => this.widgets = widgets);
+    constructor(private widgetService: WidgetService, private route: ActivatedRoute) {
+        route.params.subscribe(params => {
+            this.widgetService.getWidgetsByPage(params.pageName).subscribe(widgets => this.widgets = widgets);
+        });
+        
     }
 
     onWidgetOpened(id : number) {

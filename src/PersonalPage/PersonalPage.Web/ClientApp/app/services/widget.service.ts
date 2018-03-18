@@ -11,4 +11,8 @@ export class WidgetService {
     getWidgets() {
         return this.http.get('/api/widgets').map(res => res.json());
     }
+
+    getWidgetsByPage(page: string) {
+        return this.http.get('/api/widgets/'+page).map(res => res.json());
+    }
 }

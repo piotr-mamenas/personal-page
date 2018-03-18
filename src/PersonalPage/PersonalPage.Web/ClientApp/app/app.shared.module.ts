@@ -9,7 +9,7 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
-import { DotnetComponent } from './components/dotnet/dotnet.component';
+import { WidgetPageComponent } from './components/widget-page/widget-page.component';
 import { DatabasesComponent } from './components/databases/databases.component';
 import { LinguisticsComponent } from './components/linguistics/linguistics.component';
 import { MachineLearningComponent } from './components/machine-learning/machine-learning.component';
@@ -27,7 +27,7 @@ import { WidgetService } from './services/widget.service';
         NavMenuComponent,
         BlogComponent,
         HomeComponent,
-        DotnetComponent,
+        WidgetPageComponent,
         DatabasesComponent,
         LinguisticsComponent,
         MachineLearningComponent,
@@ -50,7 +50,7 @@ import { WidgetService } from './services/widget.service';
             { path: 'home', component: HomeComponent },
             { path: 'blog', component: BlogComponent },
             { path: 'blog/:tagName', component: BlogComponent },
-            { path: 'dotnet', component: DotnetComponent },
+            { path: 'page/:pageName', component: WidgetPageComponent },
             { path: 'databases', component: DatabasesComponent },
             { path: 'linguistics', component: LinguisticsComponent },
             { path: 'machine-learning', component: MachineLearningComponent },
