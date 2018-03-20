@@ -6,6 +6,8 @@ import { TagService } from './../../services/tag.service';
 
 import { Post } from './../../interfaces/post';
 
+import { TruncatePipe } from './../../pipes/truncate.pipe';
+
 @Component({
     selector: 'blog',
     templateUrl: './blog.component.html',

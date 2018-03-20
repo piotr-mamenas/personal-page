@@ -17,6 +17,8 @@ import { PostService } from './services/post.service';
 import { TagService } from './services/tag.service';
 import { WidgetService } from './services/widget.service';
 
+import { TruncatePipe } from './pipes/truncate.pipe';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -25,7 +27,8 @@ import { WidgetService } from './services/widget.service';
         HomeComponent,
         WidgetPageComponent,
         AboutMeComponent,
-        WidgetComponent
+        WidgetComponent,
+        TruncatePipe
     ],
     providers: [
         PostService,

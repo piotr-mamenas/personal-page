@@ -25,6 +25,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\about-me\man.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\app\components\about-me\man.svg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="wwwroot\dist\man.svg" />
   </ItemGroup>
 
