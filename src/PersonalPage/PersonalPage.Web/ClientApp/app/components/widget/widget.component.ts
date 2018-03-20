@@ -1,5 +1,6 @@
 ﻿import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { trigger, style, transition, animate, state } from '@angular/animations';
+import { Widget } from './../../interfaces/widget';
 
 @Component({
     selector: 'widget',
@@ -36,12 +37,7 @@ import { trigger, style, transition, animate, state } from '@angular/animations'
     ]
 })
 export class WidgetComponent {
-    @Input() colorRgb: string;
-    @Input() widgetId: number;
-    @Input() widgetContent: string;
-    @Input() widgetName: string;
-    @Input() widgetIcon: string;
-    @Input() widgetType: string;
+    @Input() widget : Widget;
 
     @Output() onWidgetOpened = new EventEmitter();
     @Output() onWidgetClosed = new EventEmitter();
@@ -84,9 +80,9 @@ export class WidgetComponent {
         this.isArticleHidden = (this.articleWidgetState === 'hidden');
 
         if (this.isArticleHidden === false) {
-            this.onWidgetOpened.emit(this.widgetId);
+            this.onWidgetOpened.emit(this.widget.id);
         } else {
-            this.onWidgetClosed.emit(this.widgetId);
+            this.onWidgetClosed.emit(this.widget.id);
         } 
     }
 }
