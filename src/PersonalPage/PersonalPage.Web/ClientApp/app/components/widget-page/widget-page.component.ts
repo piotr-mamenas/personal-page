@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Widget } from './../../interfaces/widget';
     selector: 'widget-page',
     templateUrl: './widget-page.component.html'
 })
-export class WidgetPageComponent implements OnInit {
+export class WidgetPageComponent {
     widgets : Widget[];
 
     constructor(private widgetService: WidgetService, private route: ActivatedRoute) {
@@ -33,9 +33,5 @@ export class WidgetPageComponent implements OnInit {
         this.widgets.forEach(widget => {
             widget.isClosed = false;
         });
-    }
-
-    ngOnInit() {
-        console.log(this.widgets);
     }
 }

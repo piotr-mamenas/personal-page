@@ -11,11 +11,13 @@ import { TruncatePipe } from './../../pipes/truncate.pipe';
 @Component({
     selector: 'blog',
     templateUrl: './blog.component.html',
-    styleUrls: ['./blog.component.css']
+    styleUrls: ['./blog.component.css'],
 })
 export class BlogComponent implements OnDestroy {
     posts: Post[];
+    recentPosts: Post[];
     tags: any[];
+    
 
     constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute) {
         route.params.subscribe(params => {
@@ -26,6 +28,8 @@ export class BlogComponent implements OnDestroy {
             } else {
                 this.postService.getPostsByTag(params.tagName).subscribe(posts => this.posts = posts);
             }
+
+            this.postService.getRecentPosts(10).subscribe(recentPosts => this.recentPosts = recentPosts);
         });
     }
 

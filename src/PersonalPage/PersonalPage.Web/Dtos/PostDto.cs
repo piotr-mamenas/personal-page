@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace PersonalPage.Web.Dtos
+﻿namespace PersonalPage.Web.Dtos
 {
     public class PostDto
     {
@@ -10,6 +8,6 @@ namespace PersonalPage.Web.Dtos
 
         public int Id { get; set; }
         
-        public DateTime DateCreated { get; set; }
+        public string DateCreated { get; set; }
     }
 }

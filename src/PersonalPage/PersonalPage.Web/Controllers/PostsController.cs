@@ -1,11 +1,8 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ApiExplorer;
 using Microsoft.EntityFrameworkCore;
 using PersonalPage.Web.Domain.Posts;
 using PersonalPage.Web.Dtos;
@@ -48,6 +45,14 @@ namespace PersonalPage.Web.Controllers
                 .ToListAsync();
 
             return _mapper.Map<List<Post>, List<PostDto>>(posts);
+        }
+
+        [HttpGet("recent/{postAmount}")]
+        public async Task<IEnumerable<RecentPostDto>> GetRecentPosts(int postAmount)
+        {
+            var recentPosts = await _context.Posts.OrderByDescending(p => p.DateCreated).Take(postAmount).ToListAsync();
+
+            return _mapper.Map<List<Post>, List<RecentPostDto>>(recentPosts);
         }
     }
 }

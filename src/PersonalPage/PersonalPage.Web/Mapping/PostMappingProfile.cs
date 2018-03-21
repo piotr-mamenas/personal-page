@@ -8,7 +8,12 @@ namespace PersonalPage.Web.Mapping
     {
         public PostMappingProfile()
         {
-            CreateMap<Post, PostDto>().ReverseMap();
+            CreateMap<Post, PostDto>()
+                .ForMember(dest => dest.DateCreated, opt => opt.MapFrom(src => src.DateCreated.ToShortDateString()));
+
+            CreateMap<Post, RecentPostDto>()
+                .ForMember(dest => dest.DateCreated, opt => opt.MapFrom(src => src.DateCreated.ToShortDateString()));
+
             CreateMap<Tag, TagDto>().ReverseMap();
         }
     }

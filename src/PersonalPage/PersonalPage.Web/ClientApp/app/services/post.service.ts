@@ -4,8 +4,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostService {
-    constructor(private http: Http) {
-        
+    constructor(private http: Http) {   
     }
 
     getPosts() {
@@ -13,6 +12,10 @@ export class PostService {
     }
 
     getPostsByTag(tagName: string) {
-        return this.http.get('/api/posts/'+tagName).map(res => res.json());
+        return this.http.get('/api/posts/' + tagName).map(res => res.json());
+    }
+
+    getRecentPosts(postAmount: number) {
+        return this.http.get('/api/posts/recent/' + postAmount).map(res => res.json());
     }
 }

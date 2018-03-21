@@ -15,3 +15,11 @@ body {
     opacity: 0.4;
     float: right;
 }
+
+.navbar-fixed-bottom {
+    text-align: center;
+}
+
+.fa-envelope {
+    margin-top: 30px;
+}
