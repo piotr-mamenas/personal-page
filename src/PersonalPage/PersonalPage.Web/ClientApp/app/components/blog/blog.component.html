@@ -27,10 +27,11 @@
                     {{ recentPost.title }}
                 </div>
             </div>
-            
-            <h3>Tags</h3>
-            <div class="well well-lg">
-                <button class="label label-primary" *ngFor="let tag of tags" [routerLink]="['/blog/',tag.name]">{{ tag.name }}</button>
+            <div *ngIf="!currentPost">
+                <h3>Tags</h3>
+                <div class="well well-lg">
+                    <button class="label label-primary" *ngFor="let tag of tags" [routerLink]="['/blog/',tag.name]">{{ tag.name }}</button>
+                </div>                
             </div>
         </div>
     </div>    
