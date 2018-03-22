@@ -1,1 +1,4 @@
-﻿
+﻿.fa-cog {
+    display: flex;
+    justify-content: center;
+}
