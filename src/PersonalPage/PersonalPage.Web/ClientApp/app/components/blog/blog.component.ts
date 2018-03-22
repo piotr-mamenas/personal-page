@@ -23,13 +23,14 @@ export class BlogComponent implements OnDestroy {
         route.params.subscribe(params => {
             this.tagService.getTags().subscribe(tags => this.tags = tags);
 
-            if (params.tagName == null) {
-                this.postService.getPosts().subscribe(posts => this.posts = posts);
-            } else {
-                this.postService.getPostsByTag(params.tagName).subscribe(posts => this.posts = posts);
-            }
             if (params.postId != null) {
                 this.postService.getPostById(params.postId).subscribe(post => this.currentPost = post);
+            } else {
+                if (params.tagName == null) {
+                    this.postService.getPosts().subscribe(posts => this.posts = posts);
+                } else {
+                    this.postService.getPostsByTag(params.tagName).subscribe(posts => this.posts = posts);
+                }                
             }
 
             this.postService.getRecentPosts(10).subscribe(recentPosts => this.recentPosts = recentPosts);

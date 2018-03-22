@@ -12,7 +12,7 @@ export class PostService {
     }
 
     getPostsByTag(tagName: string) {
-        return this.http.get('/api/posts/' + tagName).map(res => res.json());
+        return this.http.get('/api/posts/tags/' + tagName).map(res => res.json());
     }
 
     getRecentPosts(postAmount: number) {

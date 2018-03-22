@@ -30,7 +30,7 @@ namespace PersonalPage.Web.Controllers
             return _mapper.Map<List<Post>,List<PostDto>>(postsInDb);
         }
 
-        [HttpGet("{tagName:string}")]
+        [HttpGet("tags/{tagName}")]
         public async Task<IActionResult> GetByTag(string tagName)
         {
             var taggedPostIds = await _context.PostTags
@@ -58,7 +58,7 @@ namespace PersonalPage.Web.Controllers
             return Ok(_mapper.Map<List<Post>, List<PostDto>>(posts));
         }
 
-        [HttpGet("{postId:int}")]
+        [HttpGet("{postId}")]
         public async Task<IActionResult> GetById(int postId)
         {
             var post = await _context.Posts.SingleOrDefaultAsync(p => p.Id == postId);
@@ -68,7 +68,7 @@ namespace PersonalPage.Web.Controllers
                 return NotFound();
             }
 
-            return Ok(_mapper.Map<Post,PostDto>(post));
+            return Ok(_mapper.Map<Post, PostDto>(post));
         }
 
         [HttpGet("recent/{postAmount}")]
