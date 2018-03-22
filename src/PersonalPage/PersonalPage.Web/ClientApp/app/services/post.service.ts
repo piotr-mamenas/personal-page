@@ -18,4 +18,8 @@ export class PostService {
     getRecentPosts(postAmount: number) {
         return this.http.get('/api/posts/recent/' + postAmount).map(res => res.json());
     }
+
+    getPostById(postId: number) {
+        return this.http.get('/api/posts/' + postId).map(res => res.json());
+    }
 }

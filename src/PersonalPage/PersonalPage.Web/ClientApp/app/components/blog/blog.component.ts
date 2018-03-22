@@ -17,7 +17,7 @@ export class BlogComponent implements OnDestroy {
     posts: Post[];
     recentPosts: Post[];
     tags: any[];
-    
+    currentPost: Post;
 
     constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute) {
         route.params.subscribe(params => {
@@ -27,6 +27,9 @@ export class BlogComponent implements OnDestroy {
                 this.postService.getPosts().subscribe(posts => this.posts = posts);
             } else {
                 this.postService.getPostsByTag(params.tagName).subscribe(posts => this.posts = posts);
+            }
+            if (params.postId != null) {
+                this.postService.getPostById(params.postId).subscribe(post => this.currentPost = post);
             }
 
             this.postService.getRecentPosts(10).subscribe(recentPosts => this.recentPosts = recentPosts);

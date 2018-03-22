@@ -7,7 +7,17 @@
                     <br/>
                     {{ post.dateCreated }}
                 </div>
-                <div class="panel-body">{{ post.content | truncate:[20,'... read more']}}</div>
+                <div class="panel-body">{{ post.content | truncate:[20]}} <button class="btn btn-default" 
+                                                                                  *ngIf="post.content.length > 20"
+                                                                                  [routerLink]="['/blog/',post.id]">Read More</button></div>
+            </div>
+            <div class="panel panel-default" *ngIf="currentPost">
+                <div class="panel-heading">
+                    <h2 class="panel-title">{{ currentPost.title }}</h2>
+                </div>
+                <div class="panel-body">
+                    {{ currentPost.content }}
+                </div>
             </div>
         </div>
         <div class="col-md-3">

@@ -30,13 +30,19 @@ namespace PersonalPage.Web.Controllers
             return _mapper.Map<List<Post>,List<PostDto>>(postsInDb);
         }
 
-        [HttpGet("{tagName}")]
-        public async Task<IEnumerable<PostDto>> GetByTag(string tagName)
+        [HttpGet("{tagName:string}")]
+        public async Task<IActionResult> GetByTag(string tagName)
         {
             var taggedPostIds = await _context.PostTags
                 .Include(pt => pt.Tag)
                 .Where(pt => pt.Tag.Name == tagName)
-                .Select(pt => pt.PostId).ToListAsync();
+                .Select(pt => pt.PostId)
+                .ToListAsync();
+
+            if (!taggedPostIds.Any())
+            {
+                return NotFound();
+            }
 
             var posts = await _context.Posts
                 .Include(p => p.PostTags)
@@ -44,15 +50,41 @@ namespace PersonalPage.Web.Controllers
                 .Where(p => taggedPostIds.Contains(p.Id))
                 .ToListAsync();
 
-            return _mapper.Map<List<Post>, List<PostDto>>(posts);
+            if (!posts.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<List<Post>, List<PostDto>>(posts));
+        }
+
+        [HttpGet("{postId:int}")]
+        public async Task<IActionResult> GetById(int postId)
+        {
+            var post = await _context.Posts.SingleOrDefaultAsync(p => p.Id == postId);
+
+            if (post == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<Post,PostDto>(post));
         }
 
         [HttpGet("recent/{postAmount}")]
-        public async Task<IEnumerable<RecentPostDto>> GetRecentPosts(int postAmount)
+        public async Task<IActionResult> GetRecentPosts(int postAmount)
         {
-            var recentPosts = await _context.Posts.OrderByDescending(p => p.DateCreated).Take(postAmount).ToListAsync();
+            var recentPosts = await _context.Posts
+                .OrderByDescending(p => p.DateCreated)
+                .Take(postAmount)
+                .ToListAsync();
 
-            return _mapper.Map<List<Post>, List<RecentPostDto>>(recentPosts);
+            if (!recentPosts.Any())
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<List<Post>, List<RecentPostDto>>(recentPosts));
         }
     }
 }
