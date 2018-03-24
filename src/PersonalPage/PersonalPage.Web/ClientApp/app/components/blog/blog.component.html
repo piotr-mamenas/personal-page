@@ -4,11 +4,11 @@
             <span class="fa fa-cog fa-spin fa-3x" *ngIf="!posts&&!currentPost"></span> 
             <div class="panel panel-primary" *ngFor="let post of posts">
                 <div class="panel-heading">
-                    <div class="panel-title">{{ post.title }}</div>
+                    <h3>{{ post.title }}</h3>
                     <div>{{ post.dateCreated }}<div class="pull-right"
                                                      *ngFor="let post of posts;">
                             <div *ngFor="let tag of post.tags">
-                                <span class="fa fa fa-2x {{ tag.icon }}" style="color:{{ tag.iconColor }}"></span>{{ tag.name }}</div>
+                                <span class="fa fa fa-2x {{ tag.icon }}" [style.color]="getIconColor(tag)"></span>{{ tag.name }}</div>
                             </div>
                     </div>
                 </div>

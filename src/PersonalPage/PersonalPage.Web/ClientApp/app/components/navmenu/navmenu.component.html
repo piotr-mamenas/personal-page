@@ -20,7 +20,7 @@
 
                 <li [routerLinkActive]="['link-active']" *ngFor="let tag of tags">
                     <a [routerLink]="['/page/', tag.name]">
-                    <span class='fa {{ tag.icon }}' style="color: {{ tag.iconColor }}"></span> {{ tag.name }}
+                    <span class='fa {{ tag.icon }}' [style.color]="getIconColor(tag)"></span> {{ tag.name }}
                     </a>
                 </li>
 

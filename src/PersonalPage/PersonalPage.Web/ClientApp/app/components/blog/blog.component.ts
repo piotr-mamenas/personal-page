@@ -1,6 +1,8 @@
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+
 import { PostService } from './../../services/post.service';
 import { TagService } from './../../services/tag.service';
 
@@ -20,7 +22,7 @@ export class BlogComponent implements OnDestroy {
     tags: Tag[];
     currentPost: Post;
 
-    constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute) {
+    constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
         route.params.subscribe(params => {
             this.tagService.getTags().subscribe(tags => this.tags = tags);
             
@@ -38,9 +40,10 @@ export class BlogComponent implements OnDestroy {
         });
     }
 
-    onHi($event : any) {
-        console.log(this.posts);
+    getIconColor(tag: Tag) {
+        return this.sanitizer.bypassSecurityTrustStyle(tag.iconColor);
     }
+
     ngOnDestroy() {
     }
 }
