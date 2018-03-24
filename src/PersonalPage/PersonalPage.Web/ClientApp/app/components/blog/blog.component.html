@@ -1,28 +1,28 @@
-<div class="container">
+<div class="container container-fluid">
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-8">
             <span class="fa fa-cog fa-spin fa-3x" *ngIf="!posts&&!currentPost"></span> 
             <div class="panel panel-default" *ngFor="let post of posts">
                 <div class="panel-heading">
-                    <h3 class="panel-title">{{ post.title }}</h3>
-                    <br/>
-                    {{ post.dateCreated }}
+                    <div class="panel-title">{{ post.title }}</div>
+                    <div>{{ post.dateCreated }}<span class="pull-right" *ngFor="let postTag of post.Tags">{{ postTag.name }}</span></div>
+                    {{ posts.tags }}
                 </div>
-                <div class="panel-body">{{ post.content | truncate:[20]}} <button class="btn btn-default"
-                                                                                  *ngIf="post.content.length > 20"
+                <div class="panel-body">{{ post.content | truncate:[400]}} <button class="btn btn-xs btn-primary"
+                                                                                  *ngIf="post.content.length > 400"
                                                                                   [routerLink]="['/blog/',post.id]">Read More</button>
                 </div>
             </div>
             <div class="panel panel-default" *ngIf="currentPost">
                 <div class="panel-heading">
-                    <h2 class="panel-title">{{ currentPost.title }}</h2>
+                    <span class="panel-title">{{ currentPost.title }}</span>
                 </div>
                 <div class="panel-body">
                     {{ currentPost.content }}
                 </div>
             </div>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-4">
             <h3>Recent Posts</h3>
             <div class="well well-lg">
                 <div *ngFor="let recentPost of recentPosts">

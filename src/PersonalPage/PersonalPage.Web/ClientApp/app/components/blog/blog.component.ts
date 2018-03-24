@@ -5,6 +5,7 @@ import { PostService } from './../../services/post.service';
 import { TagService } from './../../services/tag.service';
 
 import { Post } from './../../interfaces/post';
+import { Tag } from './../../interfaces/tag';
 
 import { TruncatePipe } from './../../pipes/truncate.pipe';
 
@@ -16,13 +17,13 @@ import { TruncatePipe } from './../../pipes/truncate.pipe';
 export class BlogComponent implements OnDestroy {
     posts: Post[];
     recentPosts: Post[];
-    tags: any[];
+    tags: Tag[];
     currentPost: Post;
 
     constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute) {
         route.params.subscribe(params => {
             this.tagService.getTags().subscribe(tags => this.tags = tags);
-
+            
             if (params.postId != null) {
                 this.postService.getPostById(params.postId).subscribe(post => this.currentPost = post);
             } else {

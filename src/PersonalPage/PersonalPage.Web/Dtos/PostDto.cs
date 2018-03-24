@@ -1,4 +1,6 @@
-﻿namespace PersonalPage.Web.Dtos
+﻿using System.Collections.Generic;
+
+namespace PersonalPage.Web.Dtos
 {
     public class PostDto
     {
@@ -8,6 +10,8 @@
 
         public int Id { get; set; }
         
+        public ICollection<TagDto> Tags { get; set; }
+
         public string DateCreated { get; set; }
     }
 }

@@ -10,7 +10,7 @@ namespace PersonalPage.Web.Domain.Posts
 
         public ICollection<PostTag> PostTags { get; set; }
 
-        public Post()
+        protected Post()
         {
             PostTags = new List<PostTag>();
         }

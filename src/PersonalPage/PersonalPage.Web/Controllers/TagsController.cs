@@ -22,11 +22,16 @@ namespace PersonalPage.Web.Controllers
         }
 
         [HttpGet("")]
-        public async Task<IEnumerable<TagDto>> GetAll()
+        public async Task<IActionResult> GetAll()
         {
             var tagsInDb = await _context.Tags.ToListAsync();
 
-            return _mapper.Map<List<Tag>, List<TagDto>>(tagsInDb);
+            if (tagsInDb == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(_mapper.Map<List<Tag>, List<TagDto>>(tagsInDb));
         }
     }
 }

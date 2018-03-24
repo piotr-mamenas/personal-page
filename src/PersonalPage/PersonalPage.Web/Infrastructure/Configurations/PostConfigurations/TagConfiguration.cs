@@ -10,9 +10,13 @@ namespace PersonalPage.Web.Infrastructure.Configurations.PostConfigurations
         {
             builder.ToTable("Tags");
 
-            builder.Property(pt => pt.Name);
+            builder.Property(t => t.Name);
 
-            builder.HasMany(p => p.PostTags)
+            builder.Property(t => t.Icon);
+
+            builder.Property(t => t.IconColor);
+
+            builder.HasMany(t => t.PostTags)
                 .WithOne(pt => pt.Tag)
                 .HasForeignKey(pt => pt.TagId);
 

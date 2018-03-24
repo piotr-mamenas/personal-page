@@ -25,7 +25,10 @@ namespace PersonalPage.Web.Controllers
         [HttpGet("")]
         public async Task<IEnumerable<PostDto>> GetAll()
         {
-            var postsInDb = await _context.Posts.ToListAsync();
+            var postsInDb = await _context.Posts
+                .Include(p => p.PostTags)
+                .ThenInclude(p => p.Tag)
+                .ToListAsync();
 
             return _mapper.Map<List<Post>,List<PostDto>>(postsInDb);
         }

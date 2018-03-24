@@ -10,10 +10,10 @@ namespace PersonalPage.Web.Infrastructure.Configurations.PostConfigurations
         {
             builder.ToTable("PostTags");
 
-            builder.HasKey(t => new
+            builder.HasKey(pt => new
             {
-                t.PostId,
-                t.TagId
+                pt.PostId,
+                pt.TagId
             });
             
             base.Configure(builder);

@@ -13,5 +13,9 @@
         public string Color { get; set; }
 
         public string Icon { get; set; }
+
+        protected Widget()
+        {
+        }
     }
 }

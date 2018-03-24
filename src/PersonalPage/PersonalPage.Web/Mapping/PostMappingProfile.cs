@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Linq;
+using AutoMapper;
 using PersonalPage.Web.Domain.Posts;
 using PersonalPage.Web.Dtos;
 
@@ -9,7 +10,8 @@ namespace PersonalPage.Web.Mapping
         public PostMappingProfile()
         {
             CreateMap<Post, PostDto>()
-                .ForMember(dest => dest.DateCreated, opt => opt.MapFrom(src => src.DateCreated.ToShortDateString()));
+                .ForMember(dest => dest.DateCreated, opt => opt.MapFrom(src => src.DateCreated.ToShortDateString()))
+                .ForMember(dest => dest.Tags, opt => opt.MapFrom(src => src.PostTags.Select(pt => pt.Tag)));
 
             CreateMap<Post, RecentPostDto>()
                 .ForMember(dest => dest.DateCreated, opt => opt.MapFrom(src => src.DateCreated.ToShortDateString()));

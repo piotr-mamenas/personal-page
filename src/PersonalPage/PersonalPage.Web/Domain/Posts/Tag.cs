@@ -6,9 +6,13 @@ namespace PersonalPage.Web.Domain.Posts
     {
         public string Name { get; set; }
 
+        public string Icon { get; set; }
+
+        public string IconColor { get; set; }
+
         public ICollection<PostTag> PostTags { get; set; }
 
-        public Tag()
+        protected Tag()
         {
             PostTags = new List<PostTag>();
         }
