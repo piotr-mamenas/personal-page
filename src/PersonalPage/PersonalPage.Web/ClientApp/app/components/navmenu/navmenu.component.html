@@ -11,45 +11,22 @@
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
             <ul class='nav navbar-nav'>
+
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/blog']">
-                        <span class='fa fa-sticky-note'></span> Blog
+                        <span class='fa fa-sticky-note'></span> blog
                     </a>
                 </li>
 
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/page/','coding']">
-                        <span class='fa fa-code'></span> Coding
-                    </a>
-                </li>
-
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/page','systematization']">
-                        <span class='fa fa-gear'></span> Systematization
-                    </a>
-                </li>
-
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/page','linguistics']">
-                        <span class='fa fa-comments'></span> Linguistics
-                    </a>
-                </li>
-
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/page','machine-learning']">
-                        <span class='fa fa-flask'></span> Machine Learning
-                    </a>
-                </li>
-
-                <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/page','health-and-fitness']">
-                        <span class='fa fa-cutlery'></span> Health and Fitness
+                <li [routerLinkActive]="['link-active']" *ngFor="let tag of tags">
+                    <a [routerLink]="['/page/', tag.name]">
+                    <span class='fa {{ tag.icon }}' style="color: {{ tag.iconColor }}"></span> {{ tag.name }}
                     </a>
                 </li>
 
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/about-me']">
-                        <span class='fa fa-user-circle'></span> About Me
+                        <span class='fa fa-user-circle'></span> aboutMe
                     </a>
                 </li>
             </ul>

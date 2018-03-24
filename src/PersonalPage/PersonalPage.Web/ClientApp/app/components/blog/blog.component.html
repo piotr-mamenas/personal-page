@@ -2,11 +2,15 @@
     <div class="row">
         <div class="col-md-8">
             <span class="fa fa-cog fa-spin fa-3x" *ngIf="!posts&&!currentPost"></span> 
-            <div class="panel panel-default" *ngFor="let post of posts">
+            <div class="panel panel-primary" *ngFor="let post of posts">
                 <div class="panel-heading">
                     <div class="panel-title">{{ post.title }}</div>
-                    <div>{{ post.dateCreated }}<span class="pull-right" *ngFor="let postTag of post.Tags">{{ postTag.name }}</span></div>
-                    {{ posts.tags }}
+                    <div>{{ post.dateCreated }}<div class="pull-right"
+                                                     *ngFor="let post of posts;">
+                            <div *ngFor="let tag of post.tags">
+                                <span class="fa fa fa-2x {{ tag.icon }}" style="color:{{ tag.iconColor }}"></span>{{ tag.name }}</div>
+                            </div>
+                    </div>
                 </div>
                 <div class="panel-body">{{ post.content | truncate:[400]}} <button class="btn btn-xs btn-primary"
                                                                                   *ngIf="post.content.length > 400"

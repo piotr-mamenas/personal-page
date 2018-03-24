@@ -5,5 +5,9 @@ export interface Post {
     content: string;
     id: number;
     dateCreated: string;
-    tags: Array<Tag>;
+    tags: {
+        name: string;
+        icon: string;
+        iconColor: string;
+    }
 }

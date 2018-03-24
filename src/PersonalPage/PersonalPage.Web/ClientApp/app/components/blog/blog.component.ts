@@ -38,6 +38,9 @@ export class BlogComponent implements OnDestroy {
         });
     }
 
+    onHi($event : any) {
+        console.log(this.posts);
+    }
     ngOnDestroy() {
     }
 }
