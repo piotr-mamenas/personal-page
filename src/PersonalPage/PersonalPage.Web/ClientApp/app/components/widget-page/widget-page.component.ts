@@ -2,6 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
 
+import { PostService } from './../../services/post.service';
 import { WidgetService } from './../../services/widget.service';
 import { Widget } from './../../interfaces/widget';
 
@@ -12,7 +13,7 @@ import { Widget } from './../../interfaces/widget';
 export class WidgetPageComponent {
     widgets : Widget[];
 
-    constructor(private widgetService: WidgetService, private route: ActivatedRoute) {
+    constructor(private widgetService: WidgetService, private postService: PostService, private route: ActivatedRoute) {
         route.params.subscribe(params => {
             this.widgetService.getWidgetsByPage(params.pageName).subscribe(widgets => this.widgets = widgets);
         });

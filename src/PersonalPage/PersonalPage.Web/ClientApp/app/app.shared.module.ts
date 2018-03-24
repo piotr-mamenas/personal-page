@@ -44,7 +44,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'blog', component: BlogComponent },
-            { path: 'blog/:tagName', component: BlogComponent },
+            { path: 'blog/tags/:tagName', component: BlogComponent },
             { path: 'blog/:postId', component: BlogComponent},
             { path: 'page/:pageName', component: WidgetPageComponent },
             { path: 'about-me', component: AboutMeComponent },

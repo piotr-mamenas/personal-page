@@ -21,4 +21,9 @@ li.link-active a:focus {
         -moz-box-shadow: 0 8px 6px -6px #999;
         box-shadow: 0 8px 6px -6px #999;
     }
+
+}
+
+.navbar {
+    margin-bottom: 0 !important;
 }

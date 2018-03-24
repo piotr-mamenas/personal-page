@@ -2,3 +2,18 @@
     display: flex;
     justify-content: center;
 }
+
+.well-with-icon {
+    position: relative !important;
+}
+
+.well-with-icon > span {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 1px;
+}
+
+.panel-body {
+    word-break: break-all;
+}

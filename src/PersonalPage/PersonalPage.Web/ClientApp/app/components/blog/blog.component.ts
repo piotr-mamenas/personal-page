@@ -1,7 +1,7 @@
 import { Component, Inject, OnDestroy } from '@angular/core';
 import { Http } from '@angular/http';
 import { ActivatedRoute } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { PostService } from './../../services/post.service';
 import { TagService } from './../../services/tag.service';
@@ -21,11 +21,11 @@ export class BlogComponent implements OnDestroy {
     recentPosts: Post[];
     tags: Tag[];
     currentPost: Post;
+    isPostSectionExpanded: boolean;
 
     constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
         route.params.subscribe(params => {
             this.tagService.getTags().subscribe(tags => this.tags = tags);
-            
             if (params.postId != null) {
                 this.postService.getPostById(params.postId).subscribe(post => this.currentPost = post);
             } else {
@@ -35,13 +35,16 @@ export class BlogComponent implements OnDestroy {
                     this.postService.getPostsByTag(params.tagName).subscribe(posts => this.posts = posts);
                 }                
             }
-
             this.postService.getRecentPosts(10).subscribe(recentPosts => this.recentPosts = recentPosts);
         });
     }
 
     getIconColor(tag: Tag) {
         return this.sanitizer.bypassSecurityTrustStyle(tag.iconColor);
+    }
+
+    expandPostSection() {
+        this.isPostSectionExpanded = !this.isPostSectionExpanded;
     }
 
     ngOnDestroy() {

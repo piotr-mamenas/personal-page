@@ -1,7 +1,15 @@
 <div class="container">
     <div class="row">
+        <div class="col-md-6 well well-lg">
+            
+        </div>
+        
+        <div class="col-md-5 pull-right">
+            <h3>Content</h3>
+            <div class="col-md-12 well well-lg"></div>
+        </div>
         <div *ngFor="let widget of widgets">
-            <widget [widget]="widget" 
+            <widget [widget]="widget"
                     (onWidgetOpened)="onWidgetOpened($event)"
                     (onWidgetClosed)="onWidgetClosed($event)"
                     *ngIf="!widget.isClosed"></widget>
