@@ -1,44 +1,16 @@
-<div class="row">
-    <div class="jumbotron"></div>
-</div>
 <div class="container container-fluid">
-
     <div class="row">
         <span class="fa fa-cog fa-spin fa-3x" *ngIf="!posts&&!currentPost"></span>
         <div class="well well-with-icon well-lg" [ngClass]="{'col-md-12': isPostSectionExpanded, 'col-md-8': !isPostSectionExpanded}">
             <span class="fa fa-2x pull-right" (click)="expandPostSection()" [ngClass]="{'fa-arrow-circle-left': isPostSectionExpanded, 'fa-arrow-circle-right': !isPostSectionExpanded }"></span>
-            <div class="panel panel-primary" *ngFor="let post of posts">
-                <div class="panel-heading">
-                    <h3>{{ post.title }}</h3>
-                    <div>{{ post.dateCreated }}
-                        <div class="pull-right">
-                            <span *ngFor="let tag of post.tags">
-                                <span class="fa fa-2x {{ tag.icon }}" [style.color]="getIconColor(tag)"></span>{{ tag.name }}
-                            </span>
-                        </div>
-                    </div>
-                </div>
-                <div class="panel-body">{{ post.content | truncate:[400]}} <button class="btn btn-xs btn-primary"
-                                                                                   *ngIf="post.content.length > 400"
-                                                                                   [routerLink]="['/blog/',post.id]">Read More</button>
-                </div>
+            <div *ngFor="let post of posts">
+                <postbox [post]="post"
+                         [componentVisible]="true"
+                         [truncateContent]="true"></postbox>
             </div>
-            <div class="panel panel-primary" *ngIf="currentPost">
-                <div class="panel-heading">
-                    <h3>{{ currentPost.title }}</h3>
-                    <div>{{ currentPost.dateCreated }}
-                        <div class="pull-right">
-                            <span *ngFor="let tag of currentPost.tags">
-                                <span class="fa fa-2x {{ tag.icon }}" [style.color]="getIconColor(tag)"></span>{{ tag.name }}
-                            </span>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="panel-body">
-                    {{ currentPost.content }}
-                </div>
-            </div>
+            <postbox [post]="currentPost"
+                     [componentVisible]="currentPost"
+                     [truncateContent]="false"></postbox>
         </div>
         <div class="col-md-3 col-md-offset-1" *ngIf="!isPostSectionExpanded">
             <h3>Recent Posts</h3>

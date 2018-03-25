@@ -12,6 +12,7 @@ import { BlogComponent } from './components/blog/blog.component';
 import { WidgetPageComponent } from './components/widget-page/widget-page.component';
 import { AboutMeComponent } from './components/about-me/about-me.component';
 import { WidgetComponent } from './components/widget/widget.component';
+import { PostBoxComponent } from './components/postbox/postbox.component';
 
 import { PostService } from './services/post.service';
 import { TagService } from './services/tag.service';
@@ -28,6 +29,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
         WidgetPageComponent,
         AboutMeComponent,
         WidgetComponent,
+        PostBoxComponent,
         TruncatePipe
     ],
     providers: [

@@ -64,7 +64,10 @@ namespace PersonalPage.Web.Controllers
         [HttpGet("{postId}")]
         public async Task<IActionResult> GetById(int postId)
         {
-            var post = await _context.Posts.SingleOrDefaultAsync(p => p.Id == postId);
+            var post = await _context.Posts
+                .Include(p => p.PostTags)
+                .ThenInclude(p => p.Tag)
+                .SingleOrDefaultAsync(p => p.Id == postId);
 
             if (post == null)
             {
