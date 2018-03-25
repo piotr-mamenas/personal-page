@@ -8,7 +8,8 @@ import { Post } from './../../interfaces/post';
 
 @Component({
     selector: 'widget-page',
-    templateUrl: './widget-page.component.html'
+    templateUrl: './widget-page.component.html',
+    styleUrls: ['./widget-page.component.css']
 })
 export class WidgetPageComponent {
     widgets: Widget[];

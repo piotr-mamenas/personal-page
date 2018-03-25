@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Tag } from './../../interfaces/tag';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { TagService } from './../../services/tag.service';
 

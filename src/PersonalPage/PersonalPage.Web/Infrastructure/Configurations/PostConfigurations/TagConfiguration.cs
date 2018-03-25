@@ -16,6 +16,8 @@ namespace PersonalPage.Web.Infrastructure.Configurations.PostConfigurations
 
             builder.Property(t => t.IconColor);
 
+            builder.Property(t => t.JumbotronTitle);
+
             builder.HasMany(t => t.PostTags)
                 .WithOne(pt => pt.Tag)
                 .HasForeignKey(pt => pt.TagId);

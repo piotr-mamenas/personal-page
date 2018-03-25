@@ -2,4 +2,5 @@
     name: string;
     iconColor: string;
     icon: number;
+    jumbotronTitle: string;
 }

@@ -44,7 +44,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
         BrowserAnimationsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
+            { path: 'home', component: BlogComponent },
             { path: 'blog', component: BlogComponent },
             { path: 'blog/tags/:tagName', component: BlogComponent },
             { path: 'blog/:postId', component: BlogComponent},

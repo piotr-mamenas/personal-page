@@ -10,6 +10,8 @@ namespace PersonalPage.Web.Domain.Posts
 
         public string IconColor { get; set; }
 
+        public string JumbotronTitle { get; set; }
+
         public ICollection<PostTag> PostTags { get; set; }
 
         protected Tag()

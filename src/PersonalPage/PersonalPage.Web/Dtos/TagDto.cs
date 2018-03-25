@@ -7,5 +7,7 @@
         public string Icon { get; set; }
 
         public string IconColor { get; set; }
+
+        public string JumbotronTitle { get; set; }
     }
 }

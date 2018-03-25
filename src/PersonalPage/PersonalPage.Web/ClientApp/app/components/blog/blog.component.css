@@ -13,3 +13,11 @@
     top: 0;
     right: 1px;
 }
+
+li {
+    cursor: pointer;
+}
+
+.jumbotron {
+    margin-top: 55px;
+}

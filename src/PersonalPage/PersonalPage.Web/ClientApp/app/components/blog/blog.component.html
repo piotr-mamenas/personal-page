@@ -1,3 +1,12 @@
+<div class="jumbotron">
+    <div class="container">
+        <h1>Home Page</h1>
+        <p></p>
+        <p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Contact</a>
+        </p>
+    </div>
+</div>
 <div class="container container-fluid">
     <div class="row">
         <span class="fa fa-cog fa-spin fa-3x" *ngIf="!posts&&!currentPost"></span>
@@ -15,9 +24,12 @@
         <div class="col-md-3 col-md-offset-1" *ngIf="!isPostSectionExpanded">
             <h3>Recent Posts</h3>
             <div class="well well-lg">
-                <div *ngFor="let recentPost of recentPosts">
-                    {{ recentPost.title }}
-                </div>
+                <ul>
+                    <li *ngFor="let recentPost of recentPosts" [routerLink]="['/blog/',recentPost.id]">
+                        <a>{{ recentPost.title }}</a>
+                    </li>                    
+                </ul>
+
             </div>
             <div *ngIf="!currentPost">
                 <h3>Tags</h3>
