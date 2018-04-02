@@ -25,11 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\app\components\about-me\man.svg" />
+    <None Remove="ClientApp\app\components\about\man.svg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ClientApp\app\components\about-me\man.svg">
+    <Content Include="ClientApp\app\components\about\man.svg">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>

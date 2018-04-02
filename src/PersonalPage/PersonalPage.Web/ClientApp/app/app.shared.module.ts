@@ -9,14 +9,11 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { BlogComponent } from './components/blog/blog.component';
-import { WidgetPageComponent } from './components/widget-page/widget-page.component';
-import { AboutMeComponent } from './components/about-me/about-me.component';
-import { WidgetComponent } from './components/widget/widget.component';
+import { AboutComponent } from './components/about/about.component';
 import { PostBoxComponent } from './components/postbox/postbox.component';
 
 import { PostService } from './services/post.service';
 import { TagService } from './services/tag.service';
-import { WidgetService } from './services/widget.service';
 
 import { TruncatePipe } from './pipes/truncate.pipe';
 
@@ -26,16 +23,13 @@ import { TruncatePipe } from './pipes/truncate.pipe';
         NavMenuComponent,
         BlogComponent,
         HomeComponent,
-        WidgetPageComponent,
-        AboutMeComponent,
-        WidgetComponent,
+        AboutComponent,
         PostBoxComponent,
         TruncatePipe
     ],
     providers: [
         PostService,
-        TagService,
-        WidgetService
+        TagService
     ],
     imports: [
         CommonModule,
@@ -48,8 +42,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
             { path: 'blog', component: BlogComponent },
             { path: 'blog/tags/:tagName', component: BlogComponent },
             { path: 'blog/:postId', component: BlogComponent},
-            { path: 'page/:pageName', component: WidgetPageComponent },
-            { path: 'about-me', component: AboutMeComponent },
+            { path: 'about', component: AboutComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

@@ -1,6 +1,7 @@
 body {
     background-color: #FFF;
     font-family: 'Encode Sans', sans-serif;
+    overflow-y: scroll
 }
 
 .footer {
