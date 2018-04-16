@@ -1,5 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { PostService } from './../../services/post.service';
 import { TagService } from './../../services/tag.service';
@@ -12,14 +13,14 @@ import { Tag } from './../../interfaces/tag';
     templateUrl: './blog.component.html',
     styleUrls: ['./blog.component.css'],
 })
-export class BlogComponent implements OnDestroy {
+export class BlogComponent {
     posts: Post[];
     recentPosts: Post[];
     tags: Tag[];
     currentPost: Post;
     isPostSectionExpanded: boolean;
 
-    constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute) {
+    constructor(private postService: PostService, private tagService: TagService, private route: ActivatedRoute, private sanitizer: DomSanitizer) {
         route.params.subscribe(params => {
             this.tagService.getTags().subscribe(tags => this.tags = tags);
             if (params.postId != null) {
@@ -40,6 +41,7 @@ export class BlogComponent implements OnDestroy {
         this.isPostSectionExpanded = !this.isPostSectionExpanded;
     }
 
-    ngOnDestroy() {
+    getIconColor(tag: Tag) {
+        return this.sanitizer.bypassSecurityTrustStyle(tag.iconColor);
     }
 }

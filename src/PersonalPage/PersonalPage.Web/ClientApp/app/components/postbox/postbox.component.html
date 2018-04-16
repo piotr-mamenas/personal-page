@@ -1,6 +1,6 @@
-﻿<div class="panel panel-primary" *ngIf="componentVisible">
+﻿<div class="panel panel-default" *ngIf="componentVisible">
     <div class="panel-heading">
-        <h3>{{ post.title }}</h3>
+        <h1>{{ post.title }}</h1>
         <div>{{ post.dateCreated }}
             <div class="pull-right" style="cursor: pointer;">
                 <span *ngFor="let tag of post.tags" [routerLink]="['/blog/tags/',tag.name]">
@@ -15,6 +15,6 @@
     </div>
     <div class="panel-body" *ngIf="truncateContent">{{ post.content | truncate:[400]}} <button class="btn btn-xs btn-primary"
                                                                                                *ngIf="post.content.length > 400"
-                                                                                               [routerLink]="['/blog/',post.id]">Read More</button>
+                                                                                               [routerLink]="['/blog/',post.id]">[Read More]</button>
     </div>
 </div>

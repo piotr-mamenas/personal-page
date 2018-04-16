@@ -1,13 +1,4 @@
-<div class="jumbotron">
-    <div class="container">
-        <h1>Home Page</h1>
-        <p></p>
-        <p>
-            <a class="btn btn-primary btn-lg" href="#" role="button">Contact</a>
-        </p>
-    </div>
-</div>
-<div class="container container-fluid">
+<div class="container">
     <div class="row">
         <span class="fa fa-cog fa-spin fa-3x" *ngIf="!posts&&!currentPost"></span>
         <div class="well well-with-icon well-lg" [ngClass]="{'col-md-12': isPostSectionExpanded, 'col-md-8': !isPostSectionExpanded}">
@@ -34,7 +25,11 @@
             <div *ngIf="!currentPost">
                 <h3>Tags</h3>
                 <div class="well well-lg">
-                    <button class="label label-primary" *ngFor="let tag of tags" [routerLink]="['/blog/tags',tag.name]">{{ tag.name }}</button>
+                    <a *ngFor="let tag of tags" [routerLink]="['/blog/tags',tag.name]">
+                        <span class="fa fa-2x {{ tag.icon }}" [style.color]="getIconColor(tag)"></span>
+                        <p [style.color]="getIconColor(tag)">{{ tag.name }}</p>
+                    </a>
+                    
                 </div>
             </div>
         </div>

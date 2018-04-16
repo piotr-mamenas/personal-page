@@ -3,6 +3,11 @@
     justify-content: center;
 }
 
+.well {
+    border: 0;
+    background-color: #FFF;
+}
+
 .well-with-icon {
     position: relative !important;
 }
@@ -16,8 +21,4 @@
 
 li {
     cursor: pointer;
-}
-
-.jumbotron {
-    margin-top: 55px;
 }
