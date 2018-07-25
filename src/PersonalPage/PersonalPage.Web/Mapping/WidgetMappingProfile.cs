@@ -9,7 +9,6 @@ namespace PersonalPage.Web.Mapping
         public WidgetMappingProfile()
         {
             CreateMap<Widget, WidgetDto>();
-
         }
     }
 }

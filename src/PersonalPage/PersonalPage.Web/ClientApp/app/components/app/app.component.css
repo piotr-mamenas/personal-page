@@ -23,12 +23,28 @@ body {
     margin-top: 30px;
 }
 
+.fa-github {
+    color: #000000;
+}
+
+.fa-github:hover {
+    color: #333333;
+}
+
 .fa-linkedin {
     color: #00008b;
 }
 
+.fa-linkedin:hover {
+    color: #0011bb;
+}
+
 .fa-stack-overflow {
     color: #d2691e;
+}
+
+.fa-stack-overflow:hover {
+    color: #ffbb0a;
 }
 
 .app-icon-container {
