@@ -1,3 +1,12 @@
 ﻿.panel-body {
     word-break: break-all;
 }
+
+.row {
+    padding: 20px;
+}
+
+.tag-link {
+    cursor: pointer;
+    margin-left: 20px;
+}

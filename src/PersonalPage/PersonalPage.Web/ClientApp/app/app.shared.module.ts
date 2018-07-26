@@ -17,6 +17,8 @@ import { TagService } from './services/tag.service';
 
 import { TruncatePipe } from './pipes/truncate.pipe';
 
+import { NgxGistModule } from 'ngx-gist/dist/ngx-gist.module';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -36,6 +38,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
         HttpModule,
         FormsModule,
         BrowserAnimationsModule,
+        NgxGistModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: BlogComponent },

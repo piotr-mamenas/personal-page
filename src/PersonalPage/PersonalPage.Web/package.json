@@ -5,7 +5,7 @@
   "scripts": {
     "test": "karma start ClientApp/test/karma.conf.js",
     "compile": "webpack --config webpack.config.js",
-    "vendor-compile":  "webpack --config webpack.config.vendor.js" 
+    "vendor-compile": "webpack --config webpack.config.vendor.js"
   },
   "repository": {
     "type": "git",
@@ -66,6 +66,7 @@
     "zone.js": "0.8.12"
   },
   "dependencies": {
-    "font-awesome": "^4.7.0"
+    "font-awesome": "^4.7.0",
+    "ngx-gist": "^1.0.4"
   }
 }
