@@ -1,5 +1,5 @@
 ﻿<div class="panel panel-primary" *ngIf="componentVisible">
-    <div class="panel-body" *ngIf="!truncateContent">
+    <div class="panel-body">
         <div class="row">
             <h1 class="col-sm-6">{{ post.title }}</h1>
             <div col-sm-6>
@@ -11,7 +11,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" *ngIf="!truncateContent">
             {{ post.content }}
         </div>
     </div>

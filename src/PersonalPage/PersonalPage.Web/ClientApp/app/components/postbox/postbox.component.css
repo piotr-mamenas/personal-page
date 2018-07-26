@@ -2,11 +2,8 @@
     word-break: break-all;
 }
 
-.row {
-    padding: 20px;
-}
-
 .tag-link {
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
