@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+  client:
+    build:
+      dockerfile: Dockerfile
+      context: ./client
+    ports:
+      - "3000:3000"
+    volumes:
+      - /usr/app/node_modules
+      - ./client:/usr/app
+  endpoint:
+    build:
+      dockerfile: Dockerfile
+      context: ./endpoint
+    volumes:
+      - /usr/app/node_modules
+      - ./endpoint:/usr/app
