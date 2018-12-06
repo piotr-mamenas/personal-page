@@ -11,10 +11,12 @@ const App = () => {
     <div id='app'>
       <Router>
         <div>
-          <Navbar></Navbar>
-          <Route path="/" exact component={Home} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/about" component={About} />
+          <Navbar />
+          <div id="app-body">
+            <Route path="/" exact component={Home} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/about" component={About} />
+          </div>
         </div>
       </Router>
     </div>

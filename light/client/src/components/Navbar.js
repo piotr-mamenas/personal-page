@@ -3,21 +3,21 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-        <span class="navbar-brand">Logo</span>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle Navigation">
-          <span class="navbar-toggler-icon"></span>
+    <nav className="navbar navbar-expand-md navbar-light fixed-top bg-light">
+        <span className="navbar-brand">Logo</span>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle Navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbar-collapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <Link to="/" class="nav-link">Home<span class="sr-only">(current)</span></Link>
+        <div className="collapse navbar-collapse" id="navbar-collapse">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link to="/" className="nav-link">Home<span className="sr-only">(current)</span></Link>
             </li>
-            <li class="nav-item">
-              <Link to="/blog" class="nav-link">Blog</Link>
+            <li className="nav-item">
+              <Link to="/blog" className="nav-link">Blog</Link>
             </li>
-            <li class="nav-item">
-              <Link to="/about" class="nav-link">About</Link>
+            <li className="nav-item">
+              <Link to="/about" className="nav-link">About</Link>
             </li>
           </ul>
       </div>
