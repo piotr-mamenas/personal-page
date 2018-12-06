@@ -9,9 +9,9 @@ import Navbar from './Navbar';
 const App = () => {
   return (
     <div id='app'>
-      <Navbar></Navbar>
       <Router>
         <div>
+          <Navbar></Navbar>
           <Route path="/" exact component={Home} />
           <Route path="/blog" component={Blog} />
           <Route path="/about" component={About} />
