@@ -9,9 +9,9 @@ script:
   - docker run personal-page/client npm test -- --coverage
 
 after_success:
-  - docker build -t personal-page/client ./client
-  - docker build -t personal-page/endpoint ./endpoint
-  - docker build -t personal-page/nginx ./nginx
+  - docker build -t personal-page/client ./client/Dockerfile
+  - docker build -t personal-page/endpoint ./endpoint/Dockerfile
+  - docker build -t personal-page/nginx ./nginx/Dockerfile
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub
