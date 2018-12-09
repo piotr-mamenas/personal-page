@@ -8,7 +8,7 @@ import Navbar from './Navbar';
 
 const App = () => {
   return (
-    <div className='container container-fluid' id='app'>
+    <div className='container' id='app'>
         <Router>
         <div>
           <Navbar />
