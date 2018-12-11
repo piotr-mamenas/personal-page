@@ -8,18 +8,16 @@ import Navbar from './Navbar';
 
 const App = () => {
   return (
-    <div className='container' id='app'>
-        <Router>
-        <div>
-          <Navbar />
-          <div id='app-body'>
-            <Route path='/' exact component={Home} />
-            <Route path='/blog' component={Blog} />
-            <Route path='/about' component={About} />
-          </div>
+    <Router>
+      <div>
+        <Navbar />
+        <div id='app-body'>
+          <Route path='/' exact component={Home} />
+          <Route path='/blog' component={Blog} />
+          <Route path='/about' component={About} />
         </div>
-        </Router>
-    </div>
+      </div>
+    </Router>
   );
 };
 
