@@ -3,13 +3,16 @@ import Post from './Post';
 import Tag from './Tag';
 
 const Blog = () => {
-  const posts = ["One","Two","Three"];
-  const tags = ["One","Two","Three"];
+  const posts = [
+      { header: 'Post', body: 'Post Post' }
+    ];
 
   return (
       <div className='row'>
         <div className='col-md-9 col-sm-12'>
-          <Post />
+          {posts.map(function(post, i){
+            return <Post header={post.header} body={post.body} />;
+          })}
         </div>
         <div className='col-md-3 col-sm-12'>
           <Tag />

@@ -1,10 +1,12 @@
 import React from 'react';
 
-const Post = () => {
+const Post = params => {
+  console.log(params);
   return (
     <div className='card post-card'>
       <div className='card-body'>
-        <p className='card-text'>Post</p>
+        <h5 class='card-title'>{ params.header }</h5>
+        <p className='card-text'>{ params.body }</p>
       </div>
     </div>
   )
