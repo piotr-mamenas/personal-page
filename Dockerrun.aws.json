@@ -5,13 +5,15 @@
       "name": "client",
       "image": "personal-page/client",
       "hostname": "client",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "endpoint",
       "image": "personal-page/endpoint",
       "hostname": "endpoint",
-      "essential": false
+      "essential": false,
+      "memory": 128
     },
     {
       "name": "nginx",
@@ -26,7 +28,8 @@
       ],
       "links": [
         ["client","endpoint"]
-      ]
+      ],
+      "memory": 256
     }
   ]
 }

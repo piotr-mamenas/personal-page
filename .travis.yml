@@ -18,3 +18,16 @@ after_success:
   - docker push personal-page/client
   - docker push personal-page/endpoint
   - docker push personal-page/nginx
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-2
+  app: personal-page
+  env: PersonalPage-env
+  bucket_name: arn:aws:s3:::elasticbeanstalk-us-east-2-893621541657
+  bucket_path: personal-page
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: $AWS_SECRET_KEY
