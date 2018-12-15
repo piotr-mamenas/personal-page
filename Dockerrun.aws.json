@@ -1,0 +1,32 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "personal-page/client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "endpoint",
+      "image": "personal-page/endpoint",
+      "hostname": "endpoint",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "personal-page/nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": [
+        ["client","endpoint"]
+      ]
+    }
+  ]
+}
