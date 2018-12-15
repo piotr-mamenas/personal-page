@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Post = params => {
-  console.log(params);
   return (
     <div className='card post-card'>
       <div className='card-body'>
