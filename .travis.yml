@@ -9,11 +9,15 @@ script:
   - docker run corpserott/personal-page-client-test npm test -- --coverage
 
 after_success:
-  - docker build -t corpserott/personal-page-client ./client
-  - docker build -t corpserott/personal-page-endpoint ./endpoint
-  - docker build -t pcorpserott/personal-page-nginx ./nginx
+  - docker build -t personal-page-client ./client
+  - docker build -t personal-page-endpoint ./endpoint
+  - docker build -t personal-page-nginx ./nginx
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+  # Tag local images
+  - docker tag personal-page-client corpserott/personal-page-client
+  - docker tag personal-page-endpoint corpserott/personal-page-endpoint
+  - docker tag personal-page-nginx corpserott/personal-page-nginx
   # Push images to docker hub
   - docker push corpserott/personal-page-client
   - docker push corpserott/personal-page-endpoint
