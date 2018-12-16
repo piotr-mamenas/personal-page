@@ -24,7 +24,7 @@ deploy:
   region: us-east-2
   app: personal-page
   env: PersonalPage-env
-  bucket_name: arn:aws:s3:::elasticbeanstalk-us-east-2-893621541657
+  bucket_name: elasticbeanstalk-us-east-2-893621541657
   bucket_path: page-personal
   on:
     branch: master
