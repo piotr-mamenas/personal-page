@@ -3,21 +3,21 @@
   "containerDefinitions": [
     {
       "name": "client",
-      "image": "personal-page/client",
+      "image": "corpserott/personal-page-client",
       "hostname": "client",
       "essential": false,
       "memory": 128
     },
     {
       "name": "endpoint",
-      "image": "personal-page/endpoint",
+      "image": "corpserott/personal-page-endpoint",
       "hostname": "endpoint",
       "essential": false,
       "memory": 128
     },
     {
       "name": "nginx",
-      "image": "personal-page/nginx",
+      "image": "corpserott/personal-page-nginx",
       "hostname": "nginx",
       "essential": true,
       "portMappings": [

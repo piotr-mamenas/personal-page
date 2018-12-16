@@ -3,21 +3,21 @@ services:
   - docker
 
 before_install:
-  - docker build -t personal-page/client-test -f ./client/Dockerfile.dev ./client
+  - docker build -t corpserott/personal-page-client-test -f ./client/Dockerfile.dev ./client
 
 script:
-  - docker run personal-page/client-test npm test -- --coverage
+  - docker run corpserott/personal-page-client-testt npm test -- --coverage
 
 after_success:
-  - docker build -t personal-page/client ./client
-  - docker build -t personal-page/endpoint ./endpoint
-  - docker build -t personal-page/nginx ./nginx
+  - docker build -t corpserott/personal-page-client ./client
+  - docker build -t corpserott/personal-page-endpoint ./endpoint
+  - docker build -t pcorpserott/personal-page-nginx ./nginx
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Push images to docker hub
-  - docker push personal-page/client
-  - docker push personal-page/endpoint
-  - docker push personal-page/nginx
+  - docker push corpserott/personal-page-client
+  - docker push corpserott/personal-page-endpoint
+  - docker push corpserott/personal-page-nginx
 
 deploy:
   provider: elasticbeanstalk
